@@ -6,7 +6,7 @@ const contactsInitialState = [
     { name: "Marley", number: "+5255555535", id: "2" },
 ];
 
-const contactsSlice = createSlice({
+export const contactsSlice = createSlice({
     name: "contacts",
     initialState: contactsInitialState,
     reducers: {
@@ -34,4 +34,5 @@ const contactsSlice = createSlice({
 
 export const {addContact, deleteContact} = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
+
 console.log('contactsReducer', contactsReducer)
