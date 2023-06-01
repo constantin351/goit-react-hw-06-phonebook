@@ -40,7 +40,7 @@ const persistedContactsReducer = persistReducer(persistConfig, contactsReducer);
 // });
 // console.log('store', store)
 
-//стало (LS)
+//стало (persist_LS)
 export const store = configureStore({
     reducer: {
         contacts: persistedContactsReducer,

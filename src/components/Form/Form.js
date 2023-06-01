@@ -14,6 +14,61 @@ import { addContact } from "redux/contactsSlice";
 import { getContacts } from "redux/selectors";
 //
 
+const Form = () => { 
+    const dispatch = useDispatch();
+    const contacts = useSelector(getContacts);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const contactName = form.elements.name.value;
+        const contactNumber = form.elements.number.value;
+        
+        contacts.some(contact => contact.name === contactName)
+            ? alert(`${contactName} is already in the phonebook`)
+            : dispatch(addContact(contactName, contactNumber));
+        
+        form.reset();
+    };
+
+
+     return (
+            <form onSubmit={handleSubmit} className={css.form}>
+                <label className={css.form__label}>
+                    Name
+                    <input
+                        // value={name}
+                        type="text"
+                        name="name"
+                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                        // onChange={handleInputChange}
+                        className={css.form__input}
+                        required
+                    />
+                </label>
+
+                <label className={css.form__label}>
+                    Number
+                    <input
+                        // value={number}
+                        type="tel"
+                        name="number"
+                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                        // onChange={handleInputChange}
+                        className={css.form__input}
+                        required
+                        />
+                </label>
+
+                <button type="submit" className={css.form__btn}>Add contact</button>
+            </form>
+        )
+};
+
+export default Form;
+
 
 // function Form({onFormSubmit}) { 
 //     const [name, setName] = useState('');
@@ -82,68 +137,6 @@ import { getContacts } from "redux/selectors";
 // }
 
 
-const Form = () => { 
-    // Получаем ссылку на функцию отправки экшенов
-    const dispatch = useDispatch();
-    const contacts = useSelector(getContacts);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const contactName = form.elements.name.value;
-        const contactNumber = form.elements.number.value;
-        
-        // Вызываем генератор экшена и передаем текст задачи для поля payload
-        // Отправляем результат - экшен создания задачи
-        contacts.some(contact => contact.name === contactName)
-            ? alert(`${contactName} is already in the phonebook`)
-            : dispatch(addContact(contactName, contactNumber));
-        
-        form.reset();
-    };
-
-
-     return (
-            <form onSubmit={handleSubmit} className={css.form}>
-                <label className={css.form__label}>
-                    Name
-                    <input
-                        // value={name}
-                        type="text"
-                        name="name"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                        // onChange={handleInputChange}
-                        className={css.form__input}
-                        required
-                    />
-                </label>
-
-                <label className={css.form__label}>
-                    Number
-                    <input
-                        // value={number}
-                        type="tel"
-                        name="number"
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        // onChange={handleInputChange}
-                        className={css.form__input}
-                        required
-                        />
-                </label>
-
-                <button type="submit" className={css.form__btn}>Add contact</button>
-            </form>
-        )
-}
-
-
-// Form.propTypes = {
-//     onFormSubmit: PropTypes.func.isRequired,
-// }
-
-export default Form;
 
 // class Component
 // class Form extends Component {

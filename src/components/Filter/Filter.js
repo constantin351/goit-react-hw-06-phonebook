@@ -15,10 +15,7 @@ import { useDispatch } from "react-redux";
 // import { setFilter } from "redux/actions"; //before
 import { setFilter } from "redux/filterSlice"; //after
 
-// { onFilterInputChange, filter } //были пропсы
-
 const Filter = () => { 
-    // Получаем ссылку на функцию отправки экшенов
     const dispatch = useDispatch();
 
     // const filter = useSelector(getFilter);
@@ -44,10 +41,5 @@ const Filter = () => {
         </>
     )
 }
-
-// Filter.propTypes = {
-//     onFilterInputChange: PropTypes.func.isRequired,
-//     filter: PropTypes.string,
-// }
 
 export default Filter;
