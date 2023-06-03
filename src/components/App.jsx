@@ -2,7 +2,6 @@ import Form from './Form';
 import Filter from './Filter';
 import ContactList from './ContactList';
 
-
 const App = () => {
   return (
     <div className="wrapper">

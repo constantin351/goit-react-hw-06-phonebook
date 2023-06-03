@@ -1,13 +1,9 @@
-import ContactListItem from "components/ContactListItem";
-// import PropTypes from "prop-types";
-import css from "./ContactList.module.css";
-//
 import { useSelector } from "react-redux";
-// import { statusFilter } from "redux/constants";
 import { getContacts, getFilter } from "redux/selectors"; 
+import ContactListItem from "components/ContactListItem";
+import css from "./ContactList.module.css";
 
 const filteredContactsArray = (contacts, filter) => {
-    console.log('contacts', contacts)
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
@@ -50,7 +46,4 @@ export default ContactList;
 //         </ul>
 //     )
 // };
-
-
-///
 

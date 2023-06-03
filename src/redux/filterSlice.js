@@ -8,7 +8,7 @@ const filterSlice = createSlice({
     initialState: filterInitialState,
     reducers: {
         setFilter(state, action) {
-            // state = action.payload; //тут может быть ошибка
+            // state = action.payload; //
             return action.payload;
         }
     }

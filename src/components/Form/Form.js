@@ -1,18 +1,7 @@
-// import React, { Component } from "react";
-// import { useState } from "react";
-// import PropTypes from "prop-types";
-import css from "./Form.module.css";
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as yup from "yup";
-// import styled from "styled-components";
-
-//
 import { useDispatch, useSelector } from "react-redux";
-
-// import { addContact } from "redux/actions";//before
 import { addContact } from "redux/contactsSlice";
 import { getContacts } from "redux/selectors";
-//
+import css from "./Form.module.css";
 
 const Form = () => { 
     const dispatch = useDispatch();
